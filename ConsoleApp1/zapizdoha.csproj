@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+	  <ApplicationIcon>icon.ico</ApplicationIcon>
+	  <UseWindowsForms>true</UseWindowsForms>
+	  <PublishSingleFile>true</PublishSingleFile>
+	  <SelfContained>true</SelfContained>
+	  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+	  <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <SignAssembly>False</SignAssembly>
+    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
+    <PackageIcon></PackageIcon>
+    <Copyright></Copyright>
+    <Company>Мальвина</Company>
+    <Product>Запиздоха!</Product>
+    <Authors>Мальвина</Authors>
+    <Version>1.0.0</Version>
+    <Title>Запиздоха!</Title>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>False</Optimize>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="9.0.4" />
+    <PackageReference Include="System.Windows.Extensions" Version="9.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\ConsoleApp1\ConsoleApp1\.editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\ConsoleApp1\ConsoleApp1\.editorconfig" />
+  </ItemGroup>
+
+</Project>

@@ -1410,20 +1410,23 @@ void ToMainMenu()
     satana = 0;
     satana_int = 0;
     nachalo_byl_li = false;
-    try
+    if (music_value)
     {
-        foreach (Process proc in Process.GetProcessesByName("music_zapizdoha.bin"))
+        try
         {
-            proc.Kill();
-            Process.Start("soundtracks/music2_zapizdoha.bin");
+            foreach (Process proc in Process.GetProcessesByName("music_zapizdoha.bin"))
+            {
+                proc.Kill();
+                Process.Start("soundtracks/music2_zapizdoha.bin");
+            }
         }
-    }
 
-    catch (Exception ex)
-    {
-        Console.WriteLine("ОШИБКА " + ex + ": СКРИПТ АУДИО НЕ БЫЛ ПРЕРВАН. ВОЗМОЖНО ОН УЖЕ БЫЛ ЗАВЕРШЕН ИЛИ НЕ БЫЛ ЗАПУЩЕН. ПРОГРАММА НЕ БУДЕТ ЗАВЕРШЕНА.");
-        Console.WriteLine("press any key to continue.");
-        Console.ReadLine();
+        catch (Exception ex)
+        {
+            Console.WriteLine("ОШИБКА " + ex + ": СКРИПТ АУДИО НЕ БЫЛ ПРЕРВАН. ВОЗМОЖНО ОН УЖЕ БЫЛ ЗАВЕРШЕН ИЛИ НЕ БЫЛ ЗАПУЩЕН. ПРОГРАММА НЕ БУДЕТ ЗАВЕРШЕНА.");
+            Console.WriteLine("press any key to continue.");
+            Console.ReadLine();
+        }
     }
     Main_menu();
 }
@@ -13446,7 +13449,7 @@ void Plaksa_2()
                 break;
             case ConsoleKey.D2:
                 keyInt++;
-                Les_2();
+                Norilsk(1);
                 break;
         }
     }
@@ -13614,7 +13617,6 @@ void Plaksa_Ubita_1()
                 break;
             case ConsoleKey.D4:
                 keyInt++;
-                Process.Start(new ProcessStartInfo("https://bit.ly/3BlS71b") { UseShellExecute = true });
                 END_Plaksa_Ubita_rickroll();
                 break;
         }
@@ -13761,8 +13763,16 @@ void END_Plaksa_Ubita_1()
 }
 void END_Plaksa_Ubita_rickroll()
 {
+    Process.Start(new ProcessStartInfo("https://cdn-useast1.kapwing.com/static/templates/rick-roll-video-meme-template-video-1da252ec.mp4") { UseShellExecute = true });
     Console.Clear();
     keyInt = 0;
+    if (music_value)
+    {
+        foreach (Process proc in Process.GetProcessesByName("music_zapizdoha.bin"))
+        {
+            proc.Kill();
+        }
+    }
     if (conf_end_69 != "nI3ZB6OR")
     {
         Console.ForegroundColor = ending_text;
@@ -13773,11 +13783,9 @@ void END_Plaksa_Ubita_rickroll()
         config.Save(ConfigurationSaveMode.Modified);
 
         ConfigurationManager.RefreshSection("appSettings");
-        if (sound_value) { zvuk4.Play(); }
     }
     else
     {
-        if (sound_value) { zvuk3.Play(); }
     }
     Console.ForegroundColor = black_text;
     Console.WriteLine("Концовка: 69");
@@ -13792,10 +13800,18 @@ void END_Plaksa_Ubita_rickroll()
         {
             case ConsoleKey.Escape:
                 keyInt++;
+                if (music_value)
+                {
+                    Process.Start("soundtracks/music_zapizdoha.bin");
+                }
                 ToMainMenu();
                 break;
             case ConsoleKey.D1:
                 keyInt++;
+                if (music_value)
+                {
+                    Process.Start("soundtracks/music_zapizdoha.bin");
+                }
                 Nachalo();
                 break;
         }

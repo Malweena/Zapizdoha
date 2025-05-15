@@ -20867,7 +20867,7 @@ void END_Sunduk_s_zasosom()
     Console.ForegroundColor = black_text;
     Console.WriteLine("Концовка: 115");
     Console.ForegroundColor = user_foreground_color_1;
-    Console.WriteLine("Открыв сундук ключом, тебя сразу же засосало внутрь него. Ты оказался в каком-то подвале с бетонными стенами, рядом с тобой... В прочем, это другая история.");
+    Console.WriteLine("Открыв сундук ключом, тебя сразу же засосало внутрь него. Ты оказался в каком-то подвале с бетонными стенами, рядом с тобой... Впрочем, это другая история.");
     Console.ForegroundColor = user_foreground_color_2;
     Console.WriteLine("1) Заново");
     while (keyInt <= 0)
